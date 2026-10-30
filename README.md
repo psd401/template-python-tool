@@ -7,7 +7,7 @@ PSD401 template for Python tools and libraries. uv-managed, src layout, Python 3
 - **uv-managed project**: `pyproject.toml` + committed `uv.lock`, `requires-python >= 3.12`, hatchling build backend, src layout with a typed example module (`src/psd_tool/text.py`, `py.typed` marker).
 - **pytest** with real, exact-value assertions covering unicode, truncation, empty input, and both error paths (`tests/test_slugify.py`). PSD CI fails zero-test repos by design.
 - **ruff** as both linter and formatter — line length 100, `E W F I UP B SIM RUF` rule set, config lives in `pyproject.toml`.
-- **PSD CI wiring** (org reusable workflows), Dependabot (github-actions + uv, weekly, minor/patch grouped), MIT LICENSE, CLAUDE.md.
+- **PSD CI wiring** (org reusable workflows), Dependabot (github-actions + uv, weekly, dev and production groups, 3-day cooldown; patch-level dev updates auto-merge once main requires `psd-ci / psd-ci`), MIT LICENSE, CLAUDE.md.
 
 ## The PSD runtime rule
 
