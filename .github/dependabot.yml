@@ -1,3 +1,6 @@
+# Dependabot per psd-dev-standards 04 rule 4: weekly, grouped minor+patch,
+# 3-day cooldown, dev and production updates in separate PRs so the
+# auto-merge workflow can merge patch-level dev updates on their own.
 version: 2
 updates:
   - package-ecosystem: github-actions
@@ -8,8 +11,20 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 3
     groups:
-      minor-and-patch:
+      dev-dependencies:
+        dependency-type: development
         update-types:
           - minor
           - patch
+      production-dependencies:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
