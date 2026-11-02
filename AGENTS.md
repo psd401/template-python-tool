@@ -19,6 +19,7 @@ uv run ruff format --check  # CI format gate
 - **`uv run` everything** — bare `python`/`pip` is never correct here. Single-file scripts use PEP 723 inline metadata.
 - Every public function fully typed with a docstring covering args, returns, raises.
 - Test-first for non-trivial logic; watch the test fail before making it pass.
+- One test file per module in `tests/`.
 - Tests assert exact values and cover edge cases (empty, unicode, boundaries) and error paths (`pytest.raises` with `match=`).
 - Existing tests are contracts: weakening or deleting an assertion must be declared in the PR body.
 - Dependencies: add with `uv add` (runtime) / `uv add --dev` (dev) so `uv.lock` stays in sync; state why in the PR body.
